@@ -187,10 +187,10 @@ def str_to_table(db, a_table, **kwargs):
     pattern = 'COMMENT='
     if rows[-1][-1].startswith(pattern):  # 这里假设标准打印的语句的最后一行是包含了这个想要的comment
         comment_of_this_table = rows[-1][-1]
-        print('got the comment of this table: %s', comment_of_this_table)
+        print('got the comment of this table: %s' % comment_of_this_table)
         comment_of_this_table = comment_of_this_table.replace(pattern, '')
         del rows[-1][-1]
-    print('finally, comment of this table: %s', comment_of_this_table)
+    print('finally, comment of this table: %s' % comment_of_this_table)
     if comment_of_this_table:
         rows.insert(1, ['COMMENT', comment_of_this_table])
 
@@ -209,8 +209,8 @@ def set_value_for_a_table(ws, t_data, row_num):
     print('总行数：%s' % len_data)
 
     table_comment = t_data['table_comment']
-    print('table_comment: %s', table_comment)
-    print('表数据第一行为：%s', data[0])
+    print('table_comment: %s' % table_comment)
+    print('表数据第一行为：%s' % data[0])
 
     for idx_row in range(len_data):
         row = data[idx_row]
@@ -232,7 +232,7 @@ def set_value_for_a_table(ws, t_data, row_num):
         #         ws.merge_cells('A{0}:C{0}'.format(this_row_num))
         #         ws.merge_cells('D{0}:F{0}'.format(this_row_num))
 
-    print('每一行最多有多少列：%s', max_row_len)
+    print('每一行最多有多少列：%s' % max_row_len)
     for idx_row in range(len_data):
         for idx_col in range(max_row_len):
             this_cell = ws.cell(row=row_num + idx_row + 1, column=idx_col + 1)
