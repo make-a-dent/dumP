@@ -112,6 +112,7 @@ def deal_a_row(x):
 
     x = x.replace('\"', '')
     x = x.replace('\'', '')
+    x = x.replace('`', '')
     x = x.replace(' ' * 2, '')
 
     # 先做这些，就能判断这一行描述的是什么
